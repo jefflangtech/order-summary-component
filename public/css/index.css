@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'Red Hat Display';
+  src: url('../fonts/RedHatDisplay-VariableFont_wght.ttf') type('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+:root {
+  --primary-clr: #382AE1;
+  --primary-clr-active: #766CF1;
+  --heading: #1F2E55;
+  --text: #717FA6;
+  --bg-primary: #E0E8FF;
+  --bg-light: #F7F9FF;
+  --white: #FFF;
+}
+
+html {
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 0px;
+}
+
+.text-1 {
+  font-size: 1.75rem;
+}
+
+.text-2 {
+  line-height: 163%;
+}
+
+.text-3 {
+  font-size: 0.94rem;
+}
+
+.text-4 {
+  font-size: 0.94rem;
+}
+
+.text-5 {
+  font-size: 0.875rem;
+}
+
+.extra-bold {
+  font-weight: 900;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+body {
+  font-family: 'Red Hat Display', sans-serif;
+  color: var(--text);
+  background-color: var(--bg-primary);
+  display: grid;
+  grid-template-columns: 
+    minmax(1px, 1fr)
+    [container-start] clamp(20.44rem, 87.2%, 28.125rem) [container-end]
+    minmax(1px, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+main {
+  background-color: var(--white);
+  grid-column: container-start / container-end;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 
+    1fr 
+    [content-start] clamp(17.44rem, 85%, 22.125rem) [content-end]
+    1fr;
+  /* Temporary rules */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+:is(h1, h2) {
+  color: var(--heading);
+}
+
+.plan-details {
+  grid-column: content-start / content-end;
+  /* For the temp layout */
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 0;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  background-color: var(--bg-light);
+  border-radius: 0.69rem;
+  width: 100%;
+  padding-inline: 1.56rem;
+  padding-block: 1.56rem;
+  & button {
+    margin-left: auto;
+    background-color: transparent;
+    color: var(--primary-clr);
+    border-bottom: 2px solid var(--primary-clr);
+    height: auto;
+    align-self: center;
+  }
+  & button:hover {
+    color: var(--primary-clr-active);
+    border-bottom: 2px solid transparent;
+  }
+}

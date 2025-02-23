@@ -24,19 +24,43 @@
   <meta name="robots" content="index,follow">
 </head>
 <body>
+  <!-- This is for pixel proofing -->
+  <div id="overlay" hidden>
+    <picture id="desktop-overlay">
+      <img src="./design/desktop-design.jpg">
+    </picture>
+    <!-- <picture id="mobile-overlay">
+      <img src="./design/mobile-design.jpg">
+    </picture> -->
+  </div>
   <main>
 
-    <div class="plan-details">
-      <picture>
-        <img src="./public/images/icon-music.svg" alt="Musical notes">
-      </picture>
-      <div>
-        <h2 class="text-3 extra-bold">Annual Plan</h2>
-        <p class="medium">$59.99/year</p>
+    <picture class="hero breakout">
+      <img src="./public/images/illustration-hero.svg" alt="Figure dancing to music on headphones">
+    </picture>
+
+    <h1 class="text-1 extra-bold">Order Summary</h1>
+
+    <p class="text-2 medium">You can now listen to millions of songs, audiobooks, and podcasts on any device anywhere you like!</p>
+
+    <section class="flex">
+      <div class="plan-details">
+        <picture>
+          <img src="./public/images/icon-music.svg" alt="Musical notes">
+        </picture>
+        <div>
+          <h2 class="text-3 extra-bold">Annual Plan</h2>
+          <p class="bold">$59.99/year</p>
+        </div>
+        <button class="text-5 bold">Change</button>
       </div>
-      <button class="text-5 bold">Change</button>
-    </div>
-    <button class="primary-cta"><span class="text-4 bold">Proceed to Payment</span></button>
+      <button class="primary-cta">
+        <span class="text-4 bold">Proceed to Payment</span>
+      </button>
+      <button class="cancel">
+        <span class="text-4 bold">Cancel Order</span>
+      </button>
+    </section>
 
   </main>
   <script src="./public/js/index.js"></script>

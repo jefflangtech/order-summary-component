@@ -74,6 +74,7 @@ main {
     1fr 
     [content-start] clamp(17.44rem, 85%, 22.125rem) [content-end]
     1fr;
+  grid-template-rows: auto;
   /* Temporary rules */
   /* display: flex;
   justify-content: center;
@@ -84,10 +85,19 @@ main {
   color: var(--heading);
 }
 
-.plan-details {
+.primary-cta {
   grid-column: content-start / content-end;
+  background-color: var(--primary-clr);
+  color: var(--white);
+  padding: 0.75rem;
+  border-radius: 0.69rem;
+  box-shadow: hsl(from var(--primary-clr) h s l / 0.2) 0rem 1rem 1rem;
   /* For the temp layout */
   align-self: center;
+}
+
+.plan-details {
+  grid-column: content-start / content-end;
   display: flex;
   flex-direction: row;
   flex-basis: 0;
@@ -110,4 +120,6 @@ main {
     color: var(--primary-clr-active);
     border-bottom: 2px solid transparent;
   }
+  /* For the temp layout */
+  align-self: center;
 }

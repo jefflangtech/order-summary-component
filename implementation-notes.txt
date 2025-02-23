@@ -1,0 +1,21 @@
+#Okay, on first review I can see an opportunity to implement the grid layout like I did before, so the main container has a clamp to set the width across a variety of sizes, there is a gap, and then 1fr columns on the outside that go to 1px on extremely tiny screens. This keeps the gap in play even when the screen goes smaller than designed for.
+
+I'll just set the main content in row 2, with row 1 and row 3 also being 1fr.
+
+#Then when it comes to the main content, I'm going to duplicate that setup, but only the columns. As I discovered before, using padding does have its advantages, and I'm going to use that on the bottom of the container. Using a 3 column setup, however, will let me easily set the hero image to break out of the center column, while the rest of the content is contained. 
+
+##Content components
+
+  - a hero image which breaks out of the center column
+  - a dialog component
+  - a flex container with gap consisting of:
+    - a special dialog container (this is the plan information)
+    - a ball to action button
+    - a minimalist cancel button (this could just be the text as well
+
+The content itself does shrink when going to mobile sizes, and that should be pretty easy to control with a clamp. In the flex container the content will also shrink vertically, and that might be a combination of elements shrinking in size, as well as gap constricting. 
+
+##Started with the component items
+
+  - I did the plan-details first, which will be part of the purchase section, or something like that
+  - Next the other buttons that will accompany the plan-details

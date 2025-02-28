@@ -20,12 +20,12 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 ### Preview
 
 ![Solution Preview](./preview.png)
-I forgot to move the mouse cursor, haha.
+Not pixel perfect, but the designs also didn't facilitate that, and it's good to eyeball things from time to time anyway.
 
 ### Links
 
-- Solution URL: [FrontEnd Mentor Solution](https://www.frontendmentor.io/solutions/css-grid-with-html-templates-and-json-data-loading-D0dMwlJPSb)
-- Live Site URL: [Github](https://jefflangtech.github.io/recipe-card/)
+- Solution URL: [FrontEnd Mentor Solution](https://www.frontendmentor.io/solutions/grid-and-flex-combined---built-small-to-large-bwyZBSWBhj)
+- Live Site URL: [Github](https://jefflangtech.github.io/order-summary-component/)
 
 ## My process
 
@@ -34,62 +34,47 @@ I forgot to move the mouse cursor, haha.
 - Semantic HTML5 markup
 - CSS custom properties
 - CSS Grid
-- HTML Templates
 
 ### Step by step
 
-I went big-to-small when approaching the styling. This was the first time that I tried keeping all the layout rules at the document level (in this case I went grid) and plugged in components that had no margin of their own, only concerned with styling their internal contents. 
+This time I went small to big, and used some utility classes for styling. I don't like how it came out, necessarily, and my HTML and CSS just ended up feeling clunky. But it was good to get practice.
 
 I find it helpful to markup a screenshot of the design:
 ![Preview Markup](./design/desktop-preview-markup.png)
-I also missed one grid row, since the hero image needs to occupy its own row, and then I was able to break it out when switching to mobile. I used named grid lines to do that.
 
-Here is all the content in the center column, between [start-col] and [end-col].
+
+Again setup my nested grid containers, which really work fantastic when the screen size shrinks. Virtually no breakpoints to deal with in terms of width sizing. 
 
 ```css
+body {
+  display: grid;
+  grid-template-columns: 
+    minmax(1px, 1fr)
+    [container-start] clamp(20.44rem, 87.2%, 28.125rem) [container-end]
+    minmax(1px, 1fr);
+  grid-template-rows: 1fr auto 1fr;
+}
+
+body > * {
+  grid-column: container-start / container-end;
+  grid-row: 2;
+}
+
 main {
   display: grid;
   grid-template-columns: 
-    [start-left] 5rem 
-    [start-col] 656px [end-col] 
-    5rem [end-right];
-  grid-template-rows: repeat(auto-fit, minmax(100px, auto));
-  row-gap: 4rem;
+    1fr 
+    [content-start] clamp(17.44rem, 85%, 22.125rem) [content-end]
+    1fr;
+  grid-template-rows: auto;
+  row-gap: 1.1rem;
+  padding-bottom: 2.625rem;
 }
-main > * {
-  grid-column: start-col / end-col;
-  grid-row: auto;
-}
-```
-
-Breaking the hero image out just means to set the grid-column to [start-left] / [end-right]. Pretty nifty!
-
-Finally, here is my custom element in the JS (I excluded the content setter method). First time using custom elements and I'll probably spend some time exploring those use cases more.
-
-```js
-class RecipeCard extends HTMLElement {
-  constructor() {
-    super();
-    this.template = document.createElement("template");
-    this.template.innerHTML = `
-      <h2 id="card-title"></h2>
-      <div id="card-body">
-        <slot></slot>
-      </div>
-    `;
-  }
-
-  connectedCallback() {
-    this.appendChild(this.template.content.cloneNode(true));
-  }
-}
-
-customElements.define('recipe-card', RecipeCard);
 ```
 
 ### Continued development
 
-I went light DOM for this project, preferring to let styling for my injected component elements come from global rules. I did structure the CSS in a way that it would have been pretty easy to go shadow DOM and encapsulate component styling, but I'll do that with a future challenge. I also want to try using shadow DOM components that get styling from the global rules, as that sounds like a more complicated challenge.
+I'll do some research into what good implementations of CSS utility classes look like and try that for the next challenge.
 
 ### Useful resources
 

@@ -80,7 +80,7 @@ html {
 }
 #mobile-overlay {
   width: 375px;
-  height: 812px;
+  height: 709px;
   & img {
     width: 100%;
     height: 100%;
@@ -180,5 +180,33 @@ section.flex {
   color: var(--text);
   &:hover {
     color: var(--heading);
+  }
+}
+
+@media (max-width: 376px) {
+  .text-1 {
+    font-size: 1.375rem;
+  }
+  .text-2 {
+    font-size: 0.9375rem;
+    letter-spacing: 0.2px;
+    padding-inline: 2px;
+    line-height: 160%;
+  }
+  body,
+  .text-3 {
+    font-size: 0.875rem;
+  }
+  .text-5 {
+    font-size: 0.8125rem;
+  }
+  .plan-details {
+    padding-inline: 1.1rem;
+  }
+  .hero {
+    margin-bottom: 0.75rem;
+  }
+  section.flex {
+    gap: 1rem;
   }
 }
